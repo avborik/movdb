@@ -1,1 +1,4 @@
-main index POSTS
+@extends('layouts.admin')
+@section('content')
+    Post index
+@endsection
