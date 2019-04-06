@@ -6,6 +6,7 @@ use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddUserRequest;
+use App\Http\Requests\EditUserRequest;
 use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
@@ -74,7 +75,10 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $roles = Role::all();
+
+        return view('admin.users.edit',compact('roles','user'));
     }
 
     /**
@@ -84,10 +88,23 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditUserRequest $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $input = $request->all();
+
+        if(empty(trim($request->password))){
+            $input = $request->except('password');
+        } else {
+            $input['password'] = bcrypt($request->password);
+        }
+
+        $user->update($input);
+        Session::flash('flash_admin','The user has been edited');
+
+        return redirect('/admin/users');
     }
+
 
     /**
      * Remove the specified resource from storage.
