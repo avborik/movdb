@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddUserRequest;
 use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
@@ -43,7 +44,7 @@ class AdminUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddUserRequest $request)
     {
         $user = $request->all();
         $user['password'] = bcrypt(trim($request->password));

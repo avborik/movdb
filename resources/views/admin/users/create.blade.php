@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 @section('content')
 
+<div class="col-sm-6">
+
     @component('admin.includes.title')
       Add  Administrators / Authors
     @endcomponent
@@ -24,7 +26,7 @@
         <div class="form-group">
             <label for="role_id">Role</label>
             <select name="role_id" class="form-control">
-                <option>Select a role</option>
+                <option disabled selected>Select a role</option>
                 @foreach ($roles as $role)
                     <option value="{{$role->id}}">{{$role->name}}</option> 
                 @endforeach
@@ -34,11 +36,17 @@
         <div class="form-group">
             <label for="active">Active</label>
             <select name="active" class="form-control">
-                <option>Select a status</option>
+                <option disabled selected>Select a status</option>
                 <option value="1">Yes</option>
                 <option value="2">No</option>
             </select>
         </div>
+
+        @component('admin.includes.formErrors')
+
+        @endcomponent
+
         <button class="btn btn-primary">Add user</button>
     </form>
+</div>
 @endsection
