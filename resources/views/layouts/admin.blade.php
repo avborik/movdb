@@ -136,5 +136,13 @@
 
   <script src="{{ asset('vendor/jquery/jquery-3.3.1.min.js') }}"></script>
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
+  <script>
+      $(document).ready(function(){
+        $('.flash_message').slideDown('slow');
+        setTimeout(function(){
+            $('.flash_message').slideUp('slow');
+        },5000)
+      });
+  </script>
 </body>
 </html>

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
 {
@@ -17,7 +20,9 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-        return view('admin.users.index');
+        $users = User::all();
+
+        return view('admin.users.index',compact('users'));
     }
 
     /**
@@ -27,7 +32,9 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        $roles = Role::all();
+
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -38,7 +45,13 @@ class AdminUsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = $request->all();
+        $user['password'] = bcrypt(trim($request->password));
+        
+        User::create($user);
+        Session::flash('flash_admin','The user has been created');
+
+        return redirect('/admin/users');
     }
 
     /**
