@@ -90,8 +90,7 @@
                           <li class="nav-item">
                               <a class="nav-link" href="{{url('admin/categories')}}"><i class="fas fa-fw fa-table"></i>Categories</a>
                           </li>
-                         
-                         
+                         @if(Auth::user()->isAdmin())
                           <li class="nav-item">
                               <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5">
                               <i class="fa fa-fw fa-user-circle"></i>Users</a>
@@ -106,10 +105,12 @@
                                   </ul>
                               </div>
                           </li>
-
+                          @endif
+                          @if(Auth::user()->isAdmin())
                           <li class="nav-item">
                             <a class="nav-link" href="{{url('admin/site')}}"><i class="fa fa-fw fa-rocket"></i>Site</a>
                           </li>
+                          @endif
 
                       </ul>
                   </div>
