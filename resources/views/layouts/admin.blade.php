@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{asset('vendor/fonts/fontawesome/css
     /fontawesome-all.css')}}">
     
+    <script src="{{ asset('vendor/jquery/jquery-3.3.1.min.js') }}"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -135,7 +136,6 @@
       <!-- ============================================================== -->
   </div>    
 
-  <script src="{{ asset('vendor/jquery/jquery-3.3.1.min.js') }}"></script>
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
   <script>
       $(document).ready(function(){

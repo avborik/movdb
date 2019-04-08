@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
+use App\Photo;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminPostsController extends Controller
 {
@@ -40,7 +44,21 @@ class AdminPostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        if($file = $request->file('file')){
+            $name = time().$file->getClientOriginalName();
+            $file->move('images/posts',$name);
+            $image = Photo::create(['filename'=>$name]);
+
+            $input['photo_id'] = $image->id;
+        }
+
+        $input['user_id'] = Auth::user()->id;
+        Post::create($input);
+        Session::flash('flash_admin','The post has been created');
+
+        return redirect('admin/posts');
     }
 
     /**
