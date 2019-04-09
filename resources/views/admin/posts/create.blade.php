@@ -43,14 +43,13 @@
                     </div>
                        <button class="btn btn-primary">Add Post</button>
                 </div>
+                @component('admin.includes.formErrors')
+
+                @endcomponent
                
             </div>
 
         </div>
-        
-        @component('admin.includes.formErrors')
-
-        @endcomponent
     </form>
 </div>
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
