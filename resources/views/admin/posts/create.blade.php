@@ -20,10 +20,14 @@
                 </div>
             </div>
             <div class="col-sm-9">
-                <div class="form-group">
                      <div class="form-group">
-                        <label for="name">Title</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter a post title">
+                        <label for="title">Post title</label>
+                        <input type="text" class="form-control" name="title" placeholder="Enter a title for the post">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter a name">
                     </div>
 
                     <div class="form-group">
@@ -35,6 +39,14 @@
                             @endforeach
                         </select>    
                     </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" rows="2" name="description">
+
+                        </textarea>
+                    </div>
+
                     <div class="form-group">
                         <label for="review">Review</label>
                         <textarea id="article-ckeditor" class="form-control" rows="5" name="review">
@@ -42,7 +54,7 @@
                         </textarea>
                     </div>
                        <button class="btn btn-primary">Add Post</button>
-                </div>
+                
                 @component('admin.includes.formErrors')
 
                 @endcomponent

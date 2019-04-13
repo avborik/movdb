@@ -31,7 +31,7 @@
             </table>
         </div>
         <div class="col-sm-5">
-            <form method="POST" action="admin/categories">
+            <form method="POST" action="/admin/categories">
                 @csrf
 
                 <div class="form-group">
