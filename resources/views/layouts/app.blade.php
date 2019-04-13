@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('vendor/jquery/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('vendor/slick/slick.min.js')}}"></script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Oswald|Righteous|Roboto:300,400,500,700" 
@@ -18,9 +19,12 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/fonts/fontawesome/css
     /fontawesome-all.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('vendor/slick/slick.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('vendor/slick/slick-theme.css')}}">
+
+<link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
 <body>
     <div id="app">
