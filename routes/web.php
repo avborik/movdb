@@ -15,6 +15,7 @@ Auth::routes();
 Route::group(['middleware'=>['activeUser']],function(){
 Route::get('/admin','AdminController@index')->name('admin');
 Route::resources(['/admin/posts'=>'AdminPostsController']);
+Route::resources(['/admin/categories'=>'AdminCategoriesController']);
 });
 Route::group(['middleware'=>['activeUser','admin']],function(){
     Route::resources(['/admin/users'=>'AdminUsersController']);
