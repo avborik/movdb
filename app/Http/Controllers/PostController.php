@@ -55,9 +55,9 @@ class PostController extends Controller
         //$count = views($post)->period(Period::create('2017','2018'))->count();
         //$count = views($post)->period(Period::since('2017-02-20'))->count();
        // $count = views($post)->period(Period::pastWeeks(1))->count();
-       return  Post::orderByViews()->get();
+       //return  Post::orderByViews()->get();
        
-       // return view('posts.index',compact('post'));
+       return view('posts.index',compact('post'));
     }
 
     /**
