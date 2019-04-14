@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @if($posts)
     <div class="slick-home">
         @foreach ($posts as $post)
             <div>
@@ -28,4 +29,54 @@
             });
         });
     </script>
+    @endif
+
+    @if($postsOther)
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    @if($postsOther)
+                        <div class="home_post_list">
+                            <h3>Awesome reviews</h3>
+                            <div class="row">
+                                @foreach ($postsOther as $postOther)
+                                    <div class="col-md-6">
+                                        <div class="item">
+                                            <div class="date">
+                                                Created: {{$postOther->created_at->diffForHumans()}}
+                                            </div>
+                                            <div>
+                                                <div class="category">
+                                                    {{$postOther->category->name}}
+                                                </div>
+                                                <div class="name">
+                                                        {{$postOther->name}}
+                                                </div>
+                                                <div class="text_wrapper">
+                                                    <a href="{{url('/post/'.$postOther->id)}}" class="title">
+                                                        {{$postOther->title}}
+                                                    </a>
+                                                    <div class="desc">
+                                                        {{str_limit($postOther->description,250)}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+                </div>
+                <div class="col-md-4">
+                    
+                </div>
+                {{-- <div class="col-md-8">
+                    
+                </div> --}}
+            </div>
+        </div>
+    @endif
+
 @endsection
