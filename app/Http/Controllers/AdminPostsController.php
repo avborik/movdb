@@ -125,4 +125,12 @@ class AdminPostsController extends Controller
         Session::flash('flash_admin','The post has been deleted');
         return redirect('admin/posts');
     }
+
+    public function filter(Request $request){
+        $post = Post::
+                    where('name','like','%'.$request->input('name').'%')->
+                    orWhere('title','like','%'.$request->input('name').'%')->get();
+
+        return $post;
+    }
 }
