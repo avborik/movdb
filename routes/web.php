@@ -22,4 +22,5 @@ Route::group(['middleware'=>['activeUser','admin']],function(){
 });
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/post/{id}', 'PostController@show')->name('post');
 

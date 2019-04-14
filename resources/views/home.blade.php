@@ -58,6 +58,7 @@
                                                     </a>
                                                     <div class="desc">
                                                         {{str_limit($postOther->description,250)}}
+                                                        read more
                                                     </div>
                                                 </div>
                                             </div>
