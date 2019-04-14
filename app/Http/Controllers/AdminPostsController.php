@@ -127,10 +127,10 @@ class AdminPostsController extends Controller
     }
 
     public function filter(Request $request){
-        $post = Post::
+        $posts = Post::
                     where('name','like','%'.$request->input('name').'%')->
                     orWhere('title','like','%'.$request->input('name').'%')->get();
 
-        return $post;
+        return view('admin.posts.search',compact('posts'));
     }
 }
