@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use CyrildeWit\EloquentViewable\Support\Period;
 
 class PostController extends Controller
 {
@@ -47,7 +48,16 @@ class PostController extends Controller
     public function show($slug)
     {
         $post = Post::findBySlugOrFail($slug);
-        return view('posts.index',compact('post'));
+       // $post ->increment('views'); first easy way to count views
+       views($post)->record();
+
+    //    $count = views($post)->count();
+        //$count = views($post)->period(Period::create('2017','2018'))->count();
+        //$count = views($post)->period(Period::since('2017-02-20'))->count();
+       // $count = views($post)->period(Period::pastWeeks(1))->count();
+       return  Post::orderByViews()->get();
+       
+       // return view('posts.index',compact('post'));
     }
 
     /**
