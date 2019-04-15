@@ -19,6 +19,7 @@ Route::resources(['/admin/posts'=>'AdminPostsController']);
 Route::resources(['/admin/categories'=>'AdminCategoriesController']);
 
 Route::post('/admin/posts/filter','AdminPostsController@filter');
+Route::resources(['/admin/site'=>'AdminSiteController']);
 });
 Route::group(['middleware'=>['activeUser','admin']],function(){
     Route::resources(['/admin/users'=>'AdminUsersController']);
